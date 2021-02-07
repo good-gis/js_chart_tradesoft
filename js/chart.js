@@ -1,4 +1,4 @@
-setTimeout(chartStart, 100)
+setTimeout(chartStart, 100);
 
 function chartStart() {
 
@@ -13,7 +13,7 @@ function chartStart() {
 
 // Add data
         if (dataForChart.length === 0) {
-            chart.data = JSON.parse(data);
+            chart.data = getDefChartData();
         } else {
             chart.data = dataForChart;
         }
@@ -73,4 +73,9 @@ function chartStart() {
 
     }); // end am4core.ready()
 
+}
+
+function getDefChartData()
+{
+    return JSON.parse(data);
 }

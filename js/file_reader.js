@@ -1,7 +1,9 @@
 let fullText = "";
 let dataForChartAll = [];
 let dataForChart = [];
-let sizePointOnChart = 70000;
+let sizePointOnChart = 10000;
+let criticalTime = 10000;
+let stepMiss = 100;
 
 function readFile(input) {
     let file = input.files[0];
@@ -28,13 +30,20 @@ function prepareDataForChart() {
         return element.split(' ');
     });
 
+    let step = 0;
     // проходит по значениям
     for (let element of arraySplit) {
-        dataForChartAll.push({
-                "date": element[1] + ' ' + element[2],
-                "value": element[3]
-            }
-        );
+        if((parseInt(element[3]) < criticalTime) && (step % stepMiss !== 0)){
+            step++;
+        } else {
+            step++;
+            dataForChartAll.push({
+                    "date": element[1] + ' ' + element[2],
+                    "value": element[3]
+                }
+            );
+        }
+
     }
 
     limitDataForChart();
@@ -42,7 +51,6 @@ function prepareDataForChart() {
 
 function limitDataForChart() {
     let startPoint = dataForChartAll.length - sizePointOnChart;
-
     if (startPoint < 0) {
         dataForChart = dataForChartAll
     } else {
