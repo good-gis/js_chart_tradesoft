@@ -1,4 +1,4 @@
-// setTimeout(chartStart, 100)
+setTimeout(chartStart, 100)
 
 function chartStart() {
 

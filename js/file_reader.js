@@ -13,7 +13,7 @@ function readFile(input) {
     reader.onload = function () {
         fullText = reader.result;
         prepareDataForChart();
-        chartStart();
+        // chartStart();
     };
 
     reader.onerror = function () {
@@ -45,9 +45,7 @@ function limitDataForChart() {
 
     if (startPoint < 0) {
         dataForChart = dataForChartAll
-        console.log(dataForChart.length)
     } else {
         dataForChart = dataForChartAll.slice(startPoint, dataForChartAll.length)
-        console.log(dataForChart.length)
     }
 }
