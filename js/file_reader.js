@@ -13,7 +13,7 @@ function readFile(input) {
     reader.onload = function () {
         fullText = reader.result;
         prepareDataForChart();
-        // chartStart();
+        chartStart();
     };
 
     reader.onerror = function () {
