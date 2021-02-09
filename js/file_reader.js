@@ -31,6 +31,7 @@ function prepareDataForChart() {
     });
 
     let step = 0;
+    dataForChartAll = [];
     // проходит по значениям
     for (let element of arraySplit) {
         if((parseInt(element[3]) < criticalTime) && (step % stepMiss !== 0)){
