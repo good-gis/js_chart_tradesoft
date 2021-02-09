@@ -39,11 +39,10 @@ function prepareDataForChart() {
             step++;
             dataForChartAll.push({
                     "date": element[1] + ' ' + element[2],
-                    "value": element[3]
+                    "value": parseInt(element[3])
                 }
             );
         }
-
     }
 
     limitDataForChart();
@@ -52,7 +51,7 @@ function prepareDataForChart() {
 function limitDataForChart() {
     let startPoint = dataForChartAll.length - sizePointOnChart;
     if (startPoint < 0) {
-        dataForChart = dataForChartAll
+        dataForChart = dataForChartAll;
     } else {
         dataForChart = dataForChartAll.slice(startPoint, dataForChartAll.length)
     }

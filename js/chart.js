@@ -19,7 +19,7 @@ function chartStart() {
         }
 
 // Set input format for the dates
-        chart.dateFormatter.inputDateFormat = "yyyy-MM-dd h-m-s";
+        chart.dateFormatter.inputDateFormat = "yyyy-MM-dd H-m-s";
 
 // Create axes
         var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
