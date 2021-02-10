@@ -34,13 +34,18 @@ function prepareDataForChart() {
     dataForChartAll = [];
     // проходит по значениям
     for (let element of arraySplit) {
-        if((parseInt(element[3]) < criticalTime) && (step % stepMiss !== 0)){
+        let time = parseInt(element[3], 10);
+        if (isNaN(time)) {
+            continue
+        }
+
+        if ((time < criticalTime) && (step % stepMiss !== 0)) {
             step++;
         } else {
             step++;
             dataForChartAll.push({
                     "date": element[1] + ' ' + element[2],
-                    "value": parseInt(element[3])
+                    "value": time
                 }
             );
         }
